@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Alquileres";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Mantenimiento de Alquileres</h2>
+
+<button class="btn btn-primary mb-3" id="btnAgregar">
+    <i class="bi bi-plus-circle"></i> Agregar Alquiler
+</button>
+
+<table id="tablaRental" class="table table-bordered table-striped">
+    <thead class="table-light text-center">
+        <tr>
+            <th>Fecha Alquiler</th>
+            <th>Película</th>
+            <th>Cliente</th>
+            <th>Fecha Devolución</th>
+            <th>Empleado</th>
+            <th>Última Actualización</th>
+            <th style="width: 130px;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="modalRental" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="modalContent">
+            <!-- Contenido dinámico (formulario) -->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/rental.js"></script>
+}

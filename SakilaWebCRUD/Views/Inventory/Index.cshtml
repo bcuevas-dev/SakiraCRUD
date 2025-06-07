@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Inventario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Mantenimiento de Inventario</h2>
+
+<button class="btn btn-primary mb-3" id="btnAgregar">Agregar Inventario</button>
+
+<table id="tablaInventario" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Película</th>
+            <th>Tienda</th>
+            <th>Última Actualización</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- Modal Bootstrap -->
+<div class="modal fade" id="modalInventario" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modalContent">
+            <!-- Se carga el formulario parcial por AJAX -->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/inventory.js"></script>
+}

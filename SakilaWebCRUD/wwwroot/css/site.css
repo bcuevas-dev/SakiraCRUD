@@ -1,0 +1,78 @@
+/* Estructura principal */
+#wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar completo */
+#sidebar {
+    width: 250px;
+    background-color: #343a40;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: width 0.3s ease;
+    z-index: 1000;
+    position: relative;
+}
+
+    /* Sidebar colapsado */
+    #sidebar.collapsed {
+        width: 70px;
+    }
+
+    /* Oculta texto de enlaces al colapsar */
+    #sidebar .nav-link span {
+        display: inline;
+        transition: opacity 0.3s ease;
+    }
+
+    #sidebar.collapsed .nav-link span {
+        display: none;
+    }
+
+    /* Ajustes de íconos */
+    #sidebar .nav-link i {
+        margin-right: 10px;
+        font-size: 1.2rem;
+    }
+
+    #sidebar.collapsed .nav-link {
+        text-align: center;
+    }
+
+        #sidebar.collapsed .nav-link i {
+            margin-right: 0;
+        }
+
+/* Página principal */
+#page-content-wrapper {
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+    padding: 1rem;
+}
+
+/* Espacio lateral al colapsar */
+#sidebar.collapsed ~ #page-content-wrapper {
+    margin-left: 70px;
+}
+
+/* Estilo para el ítem activo del menú */
+.nav-link.active {
+    font-weight: bold;
+    background-color: #0d6efd !important;
+}
+
+/* Footer del sidebar siempre al fondo */
+.sidebar-footer {
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#sidebar.collapsed .sidebar-footer p {
+    display: none;
+}

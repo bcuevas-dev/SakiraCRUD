@@ -1,0 +1,28 @@
+﻿@model SakilaWebCRUD.ViewModels.CountryViewModel
+
+<div class="modal-header">
+    <h5 class="modal-title">@((Model.CountryId == 0) ? "Agregar País" : "Editar País")</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+</div>
+
+<form id="formCountry" method="post"
+      asp-action="@(Model.CountryId == 0 ? "Create" : "Edit")"
+      asp-controller="Country">
+    <div class="modal-body">
+        <input type="hidden" asp-for="CountryId" />
+
+        <div class="mb-3">
+            <label asp-for="Nombre" class="form-label"></label>
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

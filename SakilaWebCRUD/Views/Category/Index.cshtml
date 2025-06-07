@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Categorías";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Mantenimiento de Categorías</h2>
+
+<button class="btn btn-primary mb-3" id="btnAgregar">Agregar Categoría</button>
+
+<table id="tablaCategorias" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Última Actualización</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- Modal para Create/Edit -->
+<div class="modal fade" id="modalCategoria" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modalContent">
+            <!-- El contenido del formulario se carga vía AJAX -->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/category.js"></script>
+}

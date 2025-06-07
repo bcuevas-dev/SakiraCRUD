@@ -1,0 +1,57 @@
+﻿@model SakilaWebCRUD.ViewModels.RentalViewModel
+
+<div class="modal-header">
+    <h5 class="modal-title">@((Model.RentalId == 0) ? "Agregar Alquiler" : "Editar Alquiler")</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+</div>
+
+<form id="formRental" asp-action="@(Model.RentalId == 0 ? "Create" : "Edit")" asp-controller="Rental" method="post">
+    <div class="modal-body">
+        <input type="hidden" asp-for="RentalId" />
+
+        <div class="mb-3">
+            <label asp-for="RentalDate" class="form-label"></label>
+            <input asp-for="RentalDate" class="form-control" type="datetime-local" />
+            <span asp-validation-for="RentalDate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="InventoryId" class="form-label"></label>
+            <select asp-for="InventoryId" asp-items="Model.Inventarios" class="form-select">
+                <option value="">-- Seleccione Película (Inventario) --</option>
+            </select>
+            <span asp-validation-for="InventoryId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CustomerId" class="form-label"></label>
+            <select asp-for="CustomerId" asp-items="Model.Clientes" class="form-select">
+                <option value="">-- Seleccione Cliente --</option>
+            </select>
+            <span asp-validation-for="CustomerId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ReturnDate" class="form-label"></label>
+            <input asp-for="ReturnDate" class="form-control" type="datetime-local" />
+            <span asp-validation-for="ReturnDate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="StaffId" class="form-label"></label>
+            <select asp-for="StaffId" asp-items="Model.Empleados" class="form-select">
+                <option value="">-- Seleccione Empleado --</option>
+            </select>
+            <span asp-validation-for="StaffId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

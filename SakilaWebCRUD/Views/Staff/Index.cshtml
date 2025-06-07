@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Empleados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4"> Mantenimiento de Empleados</h2>
+
+<button class="btn btn-primary mb-3" id="btnAgregar">
+    <i class="bi bi-plus-circle"></i> Agregar Empleado
+</button>
+
+<table id="tablaStaff" class="table table-bordered table-striped">
+    <thead class="table-light text-center">
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Usuario</th>
+            <th>Dirección</th>
+            <th>Tienda</th>
+            <th>Activo</th>
+            <th>Última Actualización</th>
+            <th style="width: 130px;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="modalStaff" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="modalContent">
+            <!-- Contenido dinámico -->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/staff.js"></script>
+}

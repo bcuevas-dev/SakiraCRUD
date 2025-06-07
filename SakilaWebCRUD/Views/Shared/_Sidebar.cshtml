@@ -1,0 +1,36 @@
+﻿@{
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+}
+
+<nav id="sidebar" class="bg-dark text-white d-flex flex-column">
+    <div class="p-3 border-bottom d-flex justify-content-between align-items-center">
+        <h5 class="text-white mb-0">Sakila CRUD</h5>
+        <button class="btn btn-outline-light btn-sm d-md-none" id="menu-toggle">
+            <i class="bi bi-x-lg" id="toggle-icon"></i>
+        </button>
+    </div>
+    <ul class="nav flex-column mt-3">
+        <li class="nav-item">
+            <a class="nav-link text-white" href="/Film/Index">
+                <i class="bi bi-house-door me-2"></i><span>Inicio</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <span class="nav-link text-uppercase small text-muted px-3">Mantenimientos</span>
+        </li>
+        <li class="nav-item"><a class="nav-link text-white @(controller == "Film" ? "active bg-primary" : "")" href="/Film/Index"><i class="bi bi-film me-2"></i><span>Películas</span></a></li>
+        <li class="nav-item"><a class="nav-link text-white @(controller == "Actor" ? "active bg-primary" : "")" href="/Actor/Index"><i class="bi bi-person-video2 me-2"></i><span>Actor</span></a></li>
+        <li class="nav-item"><a class="nav-link text-white @(controller == "Address" ? "active bg-primary" : "")" href="/Address/Index"><i class="bi bi-geo-alt me-2"></i><span>Direcciones</span></a></li>
+        <li class="nav-item"><a class="nav-link text-white @(controller == "City" ? "active bg-primary" : "")" href="/City/Index"><i class="bi bi-building me-2"></i><span>Ciudades</span></a></li>
+        <li class="nav-item"><a class="nav-link text-white @(controller == "Country" ? "active bg-primary" : "")" href="/Country/Index"><i class="bi bi-globe-americas me-2"></i><span>Países</span></a></li>
+        <li class="nav-item"><a class="nav-link text-white @(controller == "Customer" ? "active bg-primary" : "")" href="/Customer/Index"><i class="bi bi-people me-2"></i><span>Clientes</span></a></li>
+         <li class="nav-item"><a class="nav-link text-white @(controller == "Inventory" ? "active bg-primary" : "")" href="/Inventory/Index"><i class="bi bi-box-seam me-2"></i><span>Inventario</span></a></li>
+        <li class="nav-item"><a class="nav-link text-white @(controller == "Language" ? "active bg-primary" : "")" href="/Language/Index"><i class="bi bi-translate me-2"></i><span>Idiomas</span></a></li>
+        <li class="nav-item"><a class="nav-link text-white @(controller == "Rental" ? "active bg-primary" : "")" href="/Rental/Index"><i class="bi bi-calendar-check me-2"></i><span>Rentas</span></a></li>
+        <li class="nav-item"><a class="nav-link text-white @(controller == "Staff" ? "active bg-primary" : "")" href="/Staff/Index"><i class="bi bi-person-badge me-2"></i><span>Empleados</span></a></li>
+    </ul>
+
+    <div class="sidebar-footer mt-auto text-center py-3">
+        <p class="mb-0 small text-white-50">Sakila &reg; 2025</p>
+    </div>
+</nav>

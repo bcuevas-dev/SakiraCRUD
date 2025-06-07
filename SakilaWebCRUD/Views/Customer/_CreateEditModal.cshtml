@@ -1,0 +1,64 @@
+﻿@model SakilaWebCRUD.ViewModels.CustomerViewModel
+
+<div class="modal-header">
+    <h5 class="modal-title">@((Model.CustomerId == 0) ? "Agregar Cliente" : "Editar Cliente")</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+</div>
+
+<form id="formCustomer" method="post"
+      asp-action="@(Model.CustomerId == 0 ? "Create" : "Edit")"
+      asp-controller="Customer">
+    <div class="modal-body">
+        <input type="hidden" asp-for="CustomerId" />
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="FirstName" class="form-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="LastName" class="form-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="StoreId" class="form-label"></label>
+                <select asp-for="StoreId" asp-items="Model.Tiendas" class="form-select">
+                    <option value="">-- Seleccione una tienda --</option>
+                </select>
+                <span asp-validation-for="StoreId" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="AddressId" class="form-label"></label>
+                <select asp-for="AddressId" asp-items="Model.Direcciones" class="form-select">
+                    <option value="">-- Seleccione una dirección --</option>
+                </select>
+                <span asp-validation-for="AddressId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-check mb-3">
+            <input class="form-check-input" asp-for="Active" type="checkbox" />
+            <label class="form-check-label" asp-for="Active"></label>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

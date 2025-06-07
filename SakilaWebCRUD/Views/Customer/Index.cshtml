@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Clientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Mantenimiento de Clientes</h2>
+
+<button class="btn btn-primary mb-3" id="btnAgregar">Agregar Cliente</button>
+
+<div class="table-responsive">
+    <table id="tablaCustomers" class="table table-bordered table-striped align-middle w-100">
+        <thead class="table-light">
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Dirección</th>
+                <th>Ciudad</th>
+                <th>Tienda</th>
+                <th>Activo</th>
+                <th>Fecha de Creación</th>
+                <th style="min-width: 160px;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<!-- Modal para Create/Edit -->
+<div class="modal fade" id="modalCustomer" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="modalContent">
+            <!-- Contenido AJAX -->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/customer.js"></script>
+}

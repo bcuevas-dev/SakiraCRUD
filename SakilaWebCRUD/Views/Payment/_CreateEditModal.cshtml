@@ -1,0 +1,70 @@
+﻿@model SakilaWebCRUD.ViewModels.PaymentViewModel
+
+<div class="modal-header">
+    <h5 class="modal-title">@((Model.PaymentId == 0) ? "Agregar Pago" : "Editar Pago")</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+</div>
+
+<form id="formPago" method="post"
+      asp-action="@(Model.PaymentId == 0 ? "Create" : "Edit")"
+      asp-controller="Payment">
+    <div class="modal-body">
+
+        @if ((Model.Clientes == null || !Model.Clientes.Any()) ||
+        (Model.Empleados == null || !Model.Empleados.Any()))
+        {
+            <div class="alert alert-danger">
+                No se pudo cargar la lista de clientes o empleados. Intente nuevamente.
+            </div>
+        }
+
+        <input type="hidden" asp-for="PaymentId" />
+
+        <div class="mb-3">
+            <label asp-for="CustomerId" class="form-label"></label>
+            <select asp-for="CustomerId" asp-items="Model.Clientes" class="form-select">
+                <option value="">-- Seleccione un cliente --</option>
+            </select>
+            <span asp-validation-for="CustomerId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="StaffId" class="form-label"></label>
+            <select asp-for="StaffId" asp-items="Model.Empleados" class="form-select">
+                <option value="">-- Seleccione un empleado --</option>
+            </select>
+            <span asp-validation-for="StaffId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="RentalId" class="form-label"></label>
+            <select asp-for="RentalId" asp-items="Model.Rentas" class="form-select">
+                <option value="">-- Seleccione una renta (opcional) --</option>
+            </select>
+            <span asp-validation-for="RentalId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Amount" class="form-label"></label>
+            <input asp-for="Amount" class="form-control" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PaymentDate" class="form-label"></label>
+            <input asp-for="PaymentDate" class="form-control" type="datetime-local"
+                   value="@Model.PaymentDate.ToString("yyyy-MM-ddTHH:mm")" />
+            <span asp-validation-for="PaymentDate" class="text-danger"></span>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

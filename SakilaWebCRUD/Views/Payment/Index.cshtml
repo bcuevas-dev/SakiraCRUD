@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Pagos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Mantenimiento de Pagos</h2>
+
+<button id="btnAgregar" class="btn btn-primary mb-3">Nuevo Pago</button>
+
+<table id="tablaPagos" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Empleado</th>
+            <th>Renta</th>
+            <th>Monto</th>
+            <th>Fecha Pago</th>
+            <th>Última Actualización</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="modalPago" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/payment.js"></script>
+}

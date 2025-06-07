@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Actores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Mantenimiento de Actores</h2>
+
+<button class="btn btn-primary mb-3" id="btnAgregar">Agregar Actor</button>
+
+<table id="tablaActores" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Última Actualización</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- Modal para Create/Edit -->
+<div class="modal fade" id="modalActor" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modalContent">
+            <!-- Contenido dinámico vía AJAX -->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/actor.js"></script>
+}

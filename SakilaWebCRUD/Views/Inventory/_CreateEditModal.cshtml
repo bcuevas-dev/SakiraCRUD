@@ -1,0 +1,39 @@
+﻿@model SakilaWebCRUD.Models.ViewModels.InventoryViewModel
+
+<div class="modal-header">
+    <h5 class="modal-title">@((Model.InventoryId == 0) ? "Agregar Inventario" : "Editar Inventario")</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+</div>
+
+<form id="formInventario" method="post"
+      asp-action="@(Model.InventoryId == 0 ? "Create" : "Edit")"
+      asp-controller="Inventory">
+    <div class="modal-body">
+        <input type="hidden" asp-for="InventoryId" />
+
+        <div class="mb-3">
+            <label asp-for="FilmId" class="form-label"></label>
+            <select asp-for="FilmId" asp-items="Model.Peliculas" class="form-select">
+                <option value="">-- Seleccione una película --</option>
+            </select>
+            <span asp-validation-for="FilmId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="StoreId" class="form-label"></label>
+            <select asp-for="StoreId" asp-items="Model.Tiendas" class="form-select">
+                <option value="">-- Seleccione una tienda --</option>
+            </select>
+            <span asp-validation-for="StoreId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
